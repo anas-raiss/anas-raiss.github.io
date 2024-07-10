@@ -7,10 +7,48 @@
     <link href="./output.css" rel="stylesheet">
 </head>
 
-<body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
+<body class="h-screen bg-gradient-to-tr from-blue-800 from-70% via-blue-700 via-85% to-blue-800 to-100%">
+    <div class="font-sans mx-auto max-w-2xl px-5 py-12">
+        <div class="flex justify-end items-center gap-2 text-white">
+            <span class="flex-initial mr-auto font-semibold text-2xl">overreacted
+            </span>
+            <span class="flex-initial italic">by
+            </span>
+            <img class="flex-none h-8 w-8 rounded-full" src="https://github.com/anas-raiss.png" alt="Avatar">
+        </div>
+        <div class="mt-10" id="articles">
+        </div>
+    </div>
 </body>
+
+<script>
+    let articlesNode = document.getElementById("articles");
+    let articles = [
+        { 'title': 'The Two Reacts', 'date': 'January 4, 2024', 'headline': 'UI = f(data, state)' },
+        { 'title': 'A Chain Reaction', 'date': 'December 11, 2023', 'headline': 'The limits of my language means the limit of my world' },
+        { 'title': 'npm audit : broken by design', 'date': 'July 7, 2021', 'headline': 'Found 99 vulnerabilities' },
+        { 'title': 'Before your memo', 'date': 'Feburary 23, 2021', 'headline': 'Rendering optimizations that come naturally' },
+    ];
+    articles.map((article) => {
+        let articleDiv = document.createElement('div');
+        articleDiv.classList = "mt-10 transition ease-in-out hover:scale-105 hover:translate-x-1 duration-300";
+        let titleDiv = document.createElement('h2');
+        titleDiv.classList = "text-2xl font-semibold text-violet-400";
+        titleDiv.textContent = article.title;
+        articleDiv.appendChild(titleDiv);
+
+        let dateDiv = document.createElement('p');
+        dateDiv.classList = "text-sm text-indigo-100";
+        dateDiv.textContent = article.date;
+        articleDiv.appendChild(dateDiv);
+
+        let headlineDiv = document.createElement('p');
+        headlineDiv.classList = "text-base text-indigo-200";
+        headlineDiv.textContent = article.headline;
+        articleDiv.appendChild(headlineDiv);
+
+        articlesNode.appendChild(articleDiv);
+    })
+</script>
 
 </html>
